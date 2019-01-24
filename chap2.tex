@@ -1,0 +1,186 @@
+%--------------
+\chapter{Orthogonal Series Expansion}
+\begin{itemize}
+\item For a certain types of boundary condition s the method of separation of variables  and  the superposition  principle to to an expansion in a trigonometric series that is not a \underline{Fourier series}.
+\item To solve the problem in this section , we utilize the concept of \underline{orthogonal series expansion} or \underline{generalized Fourier series}.
+\end{itemize}
+
+\section{Using Orthogonal series expansion}
+\shabox{VBP}: \\
+The temperature in a rod of a unit length in which heat transfer from its \underline{right boundary} into \underline{a surrounding medium} at a constant temperature zero is determine from
+\begin{align*}
+k\frac{\partial^2 u}{\partial x^2}&=\frac{\partial u}{\partial t},\,0<x<1,\,\,t>0\\
+u(0,t)&=0,\,\frac{\partial u}{\partial x}\big|_{x=1}=-hu(1,t),\,h>0,\,t>0\\
+u(x,0)&=1,\,0<x<1
+\end{align*}
+\shabox{Solution}\\
+Using separation of variables with $u(x,t)=X(x)T(t)$, we find
+\begin{align*}
+kX^{''}T&=XT^{'}\\
+\frac{X^{''}}{X}&=\frac{1}{k}\frac{T^{'}}{T}=-\lambda
+\end{align*}
+leads to the separated equation with BC respectively,
+\begin{align}
+X^{''}+\lambda X&=0\label{o1}\\
+T^{'}+\lambda T&=0\label{o2}
+\end{align}
+with BC: $X(0)=0$ and $X^{'}(1)+hX(1)=0$.\\
+Solve \eqref{o1}; for $\lambda=0, -\alpha^2<0$ will yield \underline{trivial solution}.\\
+For $\lambda=\alpha^2$, eqn \eqref{o1} will yield
+\begin{equation}
+x(x)=c_1\,\cos\,\alpha x+c_2\,\sin\,\alpha x\label{o3}
+\end{equation}
+Apply BC: $X(0)=0$,\\
+\begin{align}
+X(0)=c_1\,\cos(0)+c_2\,\sin\,(0)=0\nonumber\\
+c_1&=0\nonumber\\
+X(x)&=c_2\,\sin\,\alpha x\label{o4}
+\end{align}
+Apply BC: $X^{'}(1)+hX(1)=0$ on \eqref{o4},
+\begin{align*}
+X^{'}(1)&=\alpha c_2\,\cos\,\alpha (1)\\
+hX(1)&=h(c_2\,\sin\,\alpha\\
+X^{'}(1)-hX(1)&=c_2(\alpha\,\cos\,\alpha+h\,\sin\,\alpha=0\\
+\alpha\,\cos\,\alpha+h\,\sin\,\alpha&=0\\
+\tan\,\alpha&=-\frac{\alpha}{h}\leftarrow\shabox{has an infinite number of roots-see section 11.4}
+\end{align*}
+If the \underline{consecutive positive roots} are denoted $a_n,n=1,2,\ldots$ then the eigenvalues of the problem are $\lambda_n=\alpha_n^2$ corresponding to eigenfunctions are\\
+$$ X(x)=c_2\,\sin\,\alpha_n x\,n=1,2,3\ldots$$
+The solution of DE \eqref{o2} is 
+$$T(t)=c_3e^{-k\alpha^2_nt} $$
+and so 
+\begin{align}
+u_n&=X(x)T(t)=A_n\,e^{-k\alpha^2_n t}\,\sin\,\alpha_n x\\
+and\,\,\,&\\
+u(x,t)&=\sum_{n=1}^\infty\,A_ne^{-k\alpha^2_n t}\sin\,\alpha x
+\end{align}
+Now apply IC;at t=0, $u(x,0)=1, 0<x<1$, so that
+\begin{align}
+1&=\sum_{n=1}^\infty\,A_n\,\sin\,\alpha_n x\label{oic1}
+\end{align}
+The series \eqref{oic1} is not \underline{Fourier sine series}. It is an expansion of $u(x,0)=1$ in term of \underline{orthogonal functions}. It follows that the set of eigenfunctions $\{\sin\,\alpha_n x\},\,n=1,2,3\ldots$ where $a's$ are defineed by $\tan\,\alpha=-\frac{\alpha}{h}$ is \underline{orthogonal} with respect to the weight function $p(x)=1$. So 
+\begin{equation}
+A_n=\frac{\int_0^1\,\sin\,\alpha_n x\,dx}{\int_0^1\,\sin^2 \alpha^2_n x\,dx}\label{a1}
+\end{equation}
+To evaluate:
+\begin{align}
+\int_0^1\,\sin^2_n x\,dx&=\frac{1}{2}\int_0^1(1-\cos\,2\alpha x)dx\nonumber\\
+&=\frac{1}{2}\left(1-\frac{1}{2\alpha_n}\sin\,2\alpha_n\right)\label{a2}
+\end{align}
+Using 
+\begin{align}
+\sin\,2\alpha_n&=2\,\sin\,\alpha_n\,\cos\,\alpha_n\\
+a_n\,\cos_,\alpha_n&=-h\,\sin\,\alpha_n
+\end{align}
+\eqref{a2} becomes
+\begin{align}
+\int_0^1\,\sin^2\alpha_n\,dx&=\frac{1}{2}\left(1-\frac{1}{2\alpha_n}\sin\,2\alpha_n\right)\\
+&=\frac{1}{2}(1-\frac{1}{2\alpha_n}2\,\sin\,\alpha_n\,\cos\,\alpha_n)\\
+&=\frac{1}{2}(1-(h\,\cos^2\,\alpha_n)\\
+&=\frac{1}{2h}(h+\cos^2\alpha_n)\\
+\int_0^1\,\sin\,\alpha_n x\,dx&=\frac{1}{\alpha_n}(1-\cos\,\alpha_n)
+\end{align}
+Consequently \eqref{a1} becomes
+\begin{align*}
+A_n&=\frac{2h(1-\cos\,\alpha_n)}{\alpha_n(h+\cos^2\,\alpha_n)}
+\end{align*}
+Finally the solution of BVP is
+\begin{align}
+u(x,t)&=2h\sum_{n=1}^\infty\frac{1-\cos\,\alpha_n}{\alpha_n(h+\cos^2\alpha_n)}e^{-k\alpha^2_nt}\sin\,\alpha_n x
+\end{align}
+\subsection{Summary}
+\shabox{BVP}
+\begin{align}
+u_t(x,t)&=a^2u_{xx}(x,t),\,0<x<L,\,\,t>0\\
+u(0,t)&=0,\,t>0\\
+u_x(L,t)+hU(L,t)&=0,\,t>0\\
+u(x,o)=f(x),\,0<x<L
+\end{align}
+\shabox{General solution}
+\begin{align*}
+u(x,t)&=\sum_{n=1}^\infty\,A_n\,e^{-\left(\frac{Z_n\alpha}{L}t\right)^2}\,\sin\,\frac{z_n x}{L}\leftarrow\shabox{$z_n=\alpha_n$}
+\end{align*}
+%----------------------
+\shabox{Q1 Exercises 12.7}
+In example 1 find the temperature $u(x,t)$ when the left end of the rod is insulated.
+\begin{align}
+k\frac{\partial^2 u}{\partial x^2}&=\frac{\partial u}{\partial t},\,\,0<x<1,\,t>0\label{q112_7a}\\
+\frac{\partial u}{\partial x}\big|_{x=0}&=0,\frac{\partial u}{\partial x}\big|_{x=1}=-hu(1,t),\,h>0,\,t>0\label{q112_7b}\\
+u(x,0)&=1,\,\,0<x<1\label{q112_7b}
+\end{align}
+\shabox{Solution}:\\
+Let $u(x,t)=X(x)T(t)$. The substitute into \eqref{q112_7a} gives
+\begin{align}
+X^{''}+\lambda X&=0\label{q112_7c}\\
+T^{''}+k\lambda T&=0\label{q112_7d}\\
+X^{'}(0)&=0\,\,\text{and}\,\,X(0)=0,\,X^{'}(1)+h(X(1)=0\label{q112_7e}
+\end{align}
+Solve \eqref{q112_7c}:\\ 
+For $\lambda=0$ and $\lambda=-\alpha^2<0$ give $u(x,t)=0$ (trivial solution). For $\lambda=\alpha^2$, 
+\begin{equation}
+X(x)=c_1\, \cos\,\alpha x+c_2\,\sin\,\alpha x\label{soq1}
+\end{equation}
+Apply BC $X^{'}(0)=0$ gives\\
+\begin{align*}
+X^{'}(0)&=-c_1\alpha\,\sin\,\alpha(1)+c_2\alpha\,\cos\,\alpha(1)=0\to C_2=0 
+\end{align*}
+So 
+\begin{equation}
+X(x)=c_1\,\cos\,\alpha\,x\label{soq2}
+\end{equation}
+Apply the second BC of \eqref{q112_7e} to \eqref{soq2} yields
+\begin{align*}
+X^{'}(x)&=-c_1\alpha\,\sin\,\alpha x\\
+X^{'}(1)&=-c_1\alpha\,\sin\,\alpha\\
+hX(1)&=hc_1\,\cos\,\alpha\\
+X^{'}(1)+hX(1)&=-c_1\alpha\,\sin\,\alpha+c_1 h\,\cos\,\alpha=0\\ 
+&=c_1(-\alpha\,\sin\,\alpha+h\,\cos\,\alpha)=0\\
+-\alpha\,\sin\,\alpha+h\,\cos\,\alpha&=0\\
+\text{or}\,\,&\\
+\tan\,\alpha&=\frac{h}{\alpha}
+\end{align*}
+The last eqn has an infinite number of roots. If the positive roots are denoted by $\alpha_n$, $n=1,2,3\ldots$, the the eigenvalues of the problem are $\lambda_n=\alpha^2_n$. The corresponding eigenfunctions are
+\begin{equation}
+X(x)=c_1\,\cos\,\alpha_n x,\,\,\,n=1,2,3\ldots
+\end{equation}
+Solve ODE \eqref{q112_7d} gives $T=e^{-k\alpha^2_n t}$, and so
+\begin{align}
+u_n&=XT=A_ne^{-k\alpha^2_nt}\cos\,\alpha_n x\nonumber\\
+\text{and}\,\,&\nonumber\\
+u(x,t)&=\sum_{n=1}^\infty\,A_ne^{-k\alpha^2_nt}\cos\,\alpha_n x\label{soee}
+\end{align}
+Now apply IC $u(x,0)=1$. At $t=0$ so that
+\begin{align}
+u(x,0)=1&=\sum_{n=1}^\infty
+\,A_n\,\cos\,\alpha_n x\label{icq1a}
+\end{align}
+The series in \eqref{icq1a} is an expansion of $u(x,0)=1$  in terms of orthogonal function.
+It follows that the set eigenfunctions $\{\cos\,\alpha_n x\}$, $n=1,2,\ldots$ where $\alpha_n's$ are defined by $\tan\,\alpha=h/\alpha$ is orthogonal with respect to $p(x)=1$. It follows that
+\begin{align*}
+A_n&=\frac{\int_0^1\,\cos\,\alpha_n x\,dx}{\int_0^1\,\cos^2\,\alpha_n x\,dx}\\
+%-------------
+\int_0^1\,\cos\,\alpha_n x\,dx&=\frac{1}{\alpha_n}[\sin\,\alpha_nx]_0^1\\
+&=\frac{1}{\alpha_n}\sin\,\alpha_n\\
+\int_0^1\,\cos^2\alpha x\,dx&=\frac{1}{2}\int_0^2(1+\cos\,2\alpha_n x)dx\\
+&=\frac{1}{2}\left[x+\frac{1}{2\alpha_n}\sin\,2\alpha_n x\right]_0^1\leftarrow\shabox{$\cos\,x^2=\frac{1+\cos\,2x}{2}$}\\
+&=\frac{1}{2}\left[1+\frac{1}{2\alpha_n}\sin\,2\alpha_n\right]\\
+&=\frac{1}{2}\left[1+\frac{1}{2\alpha_n}2\,\sin\,\alpha\,\cos\,\alpha\right]\leftarrow\shabox{use $\cos\,2x=2\,\sin\,x\,\cos\,x$}\\
+&=\frac{1}{2}\left[1+\frac{1}{\alpha}\sin\,\alpha_n(\frac{\alpha}{h}\sin\,\alpha_n)\right]\leftarrow\shabox{$\cos\,\alpha=\frac{\alpha}{h}\sin\,\alpha$}\\
+&=\frac{1}{2h}(h+\sin^2\alpha)\\
+&=\frac{2h}{\alpha_n}\frac{\sin\,\alpha_n}{h+\sin^2\,\alpha_n}
+\end{align*}
+Hence the general solution is
+\begin{align*}
+u(x,t)&=2h\sum_{n=1}^\infty\,\frac{\sin\,\alpha_n}{\alpha_n(h+\sin^2\,\alpha_n)}e^{-k\alpha^2_nt}\cos\,\alpha_nx
+\end{align*}
+%-------------------
+\section{Past Sem Paper}
+\begin{prob}
+\shabox{Q3 JUN 2012}
+\end{prob}
+Consider the following boundary-value problem:
+\begin{align*}
+u_t(x,t)&=u_xx(x,t)+2,\,\,0<x<1,\,\,t>0\\
+u(0,t)&=0,\,u_x(1,t)+u(1,t)=0,\,t>0\\
+u(x,t)&=x+1, \,0<x<1
+\end{align*}

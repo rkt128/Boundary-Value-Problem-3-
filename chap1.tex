@@ -1,0 +1,355 @@
+\pagenumbering{arabic}
+\setcounter{chapter}{2}
+\chapter{Non homogeneous BVP}
+\section{Heat Equation}
+\begin{center}------------------------------------------------------------------------------\end{center}
+Suppose that $r$ is positive constant. Solve 
+\begin{align*}
+ku_{xx}+r&=u_t,\,\,0<x<1,\,t>0\\
+s.t\,\,\,&\\
+u(0,t)=0,\,\,u(L,t)&=u_0,\,t>0\\
+u(x,o)&=f(x),\,0<x<1
+\end{align*}
+\begin{center}-------------------------------------------------------------------------------------\end{center}
+\shabox{General Solution}
+\begin{align*}
+u(x,t)&=-\frac{r}{2k}x^2+\left(\frac{r}{2k}+u_0\right)x+\sum_{n=1^\infty}\,A_n\,e^{-kn^2\pi^2t}\sin\,n\pi x
+\end{align*}
+where 
+\begin{equation}
+A_n=2\int_0^1\left[f(x)+\frac{r}{2k}x^2-\left(\frac{r}{2k}+u_0\right)\right]\sin\,n\pi x\,dx\label{an}
+\end{equation}
+\section{Exercise 12.6}
+\begin{prob}
+\shabox{Q1}Use Method1
+\end{prob}
+Solve the equation 
+\begin{equation}
+ku_{tt}=u_t,\,0<x<1,\,t>0\label{pde1}
+\end{equation}
+ subject to
+\begin{align*}
+u(0,t)=100,\,\,u(1,t)=100\\
+u(x,0)=0
+\end{align*}
+%where 
+%%\begin{equation*}
+%A_n=2\int_0^1\left[f(x)+\frac{r}{2k}x^2-\left(\frac{r}{2k}+u_0\right)\right]\sin\,n\pi x\,dx
+%\end{equation*}
+\begin{center}-------------------------------------\end{center}
+\begin{sop}
+\end{sop}
+By changing the dependent variable $u$ to a new dependent variable $\nu$ by substitution 
+\begin{equation}
+u(x,t)=\nu(x,t)+\psi(x)\label{v1}
+\end{equation}
+Here $r=0$, $f(x)=0$.
+Substitute \eqref{v1} into \eqref{pde1} gives
+\begin{equation}
+k\nu_{xx}+k\psi_{xx}=\nu_t\label{pde2}
+\end{equation}
+Problem A:
+\begin{align}
+k\psi^{''}&=0\label{ode1}\\
+\psi^{'}&=c_1\nonumber\\
+\psi&=c_1x+c_2\label{ode2}
+\end{align}
+Apply BC: \\
+$u(0,t)=100\to \psi(0)=100\leftarrow$\shabox{Since $\nu(0,t)=0$},\\
+Eqn \eqref{ode2} becomes\\
+$100=c_1(0)+c_2\to c_2=100$. Thus\\
+\begin{equation}
+\psi=c_1x+100\label{a}
+\end{equation}
+Now apply BC: $u(1,t)=100\to\psi(1)=100\leftarrow$\shabox{Since $\nu(1,t)=0$}. Thus eqn \eqref{a} becomes\\
+$100=\psi(1)=c_1(1)=100\to c_1=0$. Hence\\
+\begin{equation}
+\psi(x)=100\label{b}
+\end{equation}
+Ic: $\nu(x,0)=f(x)-\psi(x)$. But $f(x)=0$. Now find $A_n$ by using eqn \eqref{an}. 
+\begin{align}
+A_n&=2\int_0^1(f(x)-100)\,\sin\,n\pi x\,dx\nonumber\\
+&=2\left[\frac{100}{n\pi}\cos\,n\pi x\right]_0^1\nonumber\\
+&=\frac{200}{n\pi}[(-1)^n-1]
+\end{align}
+Hence the general solution
+\begin{align*}
+u(x,t)&=\psi(x,t)+\nu(x,t)\\
+&=100+\frac{200}{\pi}\sum_{n=1}^\infty\,\frac{[(-1)^n-1]}{n}e^{-kn^2\pi^2 t}\sin\,n\pi x
+\end{align*}
+%------------------------
+\section{Wave Equation}
+\begin{center}
+-------------------------------------------------------------
+\end{center}
+\begin{align*}
+a^2\frac{\partial^2u}{\partial x^2}&=\frac{\partial^2 u}{\partial t^2},\,\,0<x<L,\,\,t>0\\
+u(0,t)&=0,\,\,u(L,t)=0,\,\,t>0\\
+u(x,0)&=f(x),\,\,\frac{\partial u}{\partial t}\big|_{t=0}=g(x),\,\,0<x<L
+\end{align*}
+\shabox{Solution}
+\begin{align*}
+u(x,t)&=\sum_{n=1}^\infty\left(\A_n\,\sin\,\frac{n\pi at}{L}+B_n\,\sin\,\frac{n\pi at}{L}\right)\sin\,\frac{n\pi x}{L}\\
+A_n&=\frac{2}{L}\int_0^L\,f(x)\,\sin\,\frac{n\pi x}{L}\,dx\\
+B_n&=\frac{2}{n\pi a}\int_0^L\,g(x)\,\sin\,\frac{n\pi x}{L}\,dx
+\end{align*}
+
+\begin{center}
+------------------------------------------------------------------
+\end{center}
+\begin{prob}
+\shabox{Q9  Exercise 12.6}
+\end{prob}
+When a vibrating string is subjected to an external vertical force that varies with the horizontal distance from left to end, the wave equation takes on the form
+\begin{equation}
+a^2\frac{\partial^2u}{\partial x^2}+Ax=\frac{\partial^2 u}{\partial t^2}\label{w1}
+\end{equation}
+where $A$ is a constant. Solve the partial differential equation subject to
+\begin{align}
+u(0,t)&=0,\,\,u(1,t)=0,\,\,t>0\label{wbc1}\\
+u(x,0)&=0,\,\,\frac{\partial u}{\partial t}\big|_{t=0}=0,\,\,0<x<1\label{wbc2}
+\end{align}
+\begin{sop}
+
+\end{sop}
+Use $u(x,t)=v(x,t)+\psi(x)$ to change \eqref{w1} to new dependent variable $v$. Eqn \eqref{w1} becomes
+\begin{align}
+a^2\frac{\partial^2v}{\partial x^2}+a^2\psi^{''}+Ax&=\frac{\partial^2 v}{\partial t^2}.
+\end{align}
+It leads to:\\
+Problem A:
+\begin{equation}
+a^2\psi^{''}+Ax=0,\,\psi(0)=0,\,\,\psi(1)=0\label{w2}
+\end{equation}
+Problem B:
+\begin{align}
+a^2\frac{\partial^2 v}{\partial x^2}&=\frac{\partial^2 v}{\partial t^2}\label{w3}\\
+s.t\,\,\,&\nonumber\\
+v(0,t)&=0, \,\,v(1,t)=0\label{w3bc1}\\
+v(x,0)&=-\psi(x), \frac{\partial v}{\partial t}\big|_{t=0}=0\label{w3bc2}
+\end{align}
+Solve problem A:\\
+\begin{align}
+\psi^{''}&=-\frac{A}{a^2}x\nonumber\\
+\psi^{'}&=-\frac{A}{2a^2}x^2+c_1\nonumber\\
+\psi(x)&=\frac{A}{6a^2}x^3+c_1x+c_2\label{w4}
+\end{align}
+Apply BC $\psi(0)=0$, eqn \eqref{w4} gives
+\begin{align*}
+0=\psi(0)&=-\frac{A}{6a^2}(0)+c_1(0)+c_2\to c_2=0\\
+\psi(x)&=-\frac{A}{6a^2}x^3+c_1x
+\end{align*}
+Apply BC $\psi(1)=0$, the latest eqn becomes
+\begin{align*}
+0=\psi(1)&=-\frac{A}{6a^2}(1)+c_1(1)\to c_1=\frac{A}{6a^2}
+\end{align*}
+So, 
+\begin{equation}
+\psi(x)=-\frac{A}{6a^2}x^3+\frac{A}{6a^2}x\label{psi1}
+\end{equation}
+Solve Problem B by using separation of variables $v(x,t)=X(x)T(t)$. For $\lambda=\alpha^2$,  eqn \eqref{w3} that satisfies BC \eqref{w3bc1} and \eqref{w3bc2} gives the solution
+\begin{equation}
+v(x,t)=\sum_{n=1}^\infty\left(A_n\,\cos\,n\pi a t+B_n\,\sin\,n\pi t\right)\sin\,n\pi x\label{s2}
+\end{equation}
+Where
+%\begin{equation}
+%A_n=2\in_0^1\,f(x)\,\sin\,n\pi c\,dx
+%\end{equation}
+Here $f(x)=0$, 
+\begin{align}
+A_n&=2\int_0^1(f(x)-\psi(x))\sin\,n\pi x\,dx\nonumber\\
+&=\frac{2A}{6a^2}\int_0^1(x^3-x)\sin\,n\pi x\,dx\nonumber\\
+&=\frac{2A}{6a^2}\left[\int_0^1\,x^3\,\sin\,n\pi x\,dx-\int_0^1\,x\,\sin\,n\pi x\,dx\right]\label{s1}
+\end{align}.
+Consider:
+\begin{align*}
+\int\,x^3\,\sin\,n\pi\,x\,dx&=x^3\int\,\sin\,n\pi x\,dx-\int[\int\,\sin\,n\pi x,dx]\frac{d}{dx}(x^3)dx\\
+&=\frac{x^3}{n\pi}(-\cos\,n\pi x)+\frac{1}{n\pi}\int\,3x^2\,\cos\,n\pi x\,dx\\
+&=-\frac{x^3}{n\pi}\cos\,n\pi x+\frac{3}{n\pi}\left[\frac{x^2}{n\pi}\,\sin\,n\pi x-\int\frac{1}{n\pi}(\sin\,n\pi x)\frac{d}{dx}(x^2)dx\right]\\
+&=-\frac{x^3}{n\pi}\,\cos\,n\pi x+\frac{3x^2}{n^2\pi^2}\,\sin\,n\pi x-\frac{6}{n^2\pi^2}\left[\int\,x\,\sin\,n\pi x\,dx\right]\\
+&=-\frac{x^3}{n\pi}\,\cos\,n\pi x+\frac{3x^2}{n^2\pi^2}\,\sin\,n\pi x\\
+& -\frac{6}{n^2\pi^2}\left[x\int\,\sin\,n\pi x\,dx-\int[\int\,\sin\,n\pi x\,dx]\right]\\
+&=\frac{x^3}{n\pi}\,\cos\,n\pi x+\frac{3x^2}{n^2\pi^2}\,\sin\,n\pi x\\
+&-\frac{6}{n^2\pi^2}\left[-\frac{x}{n\pi}\,\cos\,n\pi x+\frac{1}{n\pi}\int\,\cos\,n\pi x\,dx\right]\\
+&=\frac{x^3}{n\pi}\,\cos\,n\pi x+\frac{3x^2}{n^2\pi^2}\,\sin\,n\pi x\\
+&+\frac{6x}{n^3\pi^3}\,\cos\,n\pi x-\frac{6}{n^4\pi^4}\,\sin\,n\pi x\\
+%----------------------------
+\int_0^1\,x^3\,\sin\,n\pi x\,dx&=\left[\frac{x^3}{n\pi}\,\cos\,n\pi x+\frac{3x^2}{n^2\pi^2}\,\sin\,n\pi x+\frac{6x}{n^3\pi^3}\,\cos\,n\pi x-\frac{6}{n^4\pi^4}\,\sin\,n\pi x\right]_0^1\\
+&=-\frac{1}{n\pi}(-1)^n+\frac{6}{n^3\pi^3}(-1)^n\nonumber\\
+&=-\frac{1}{n\pi}(-1)^n+\frac{2}{n^3\pi^3}((-)^n-1)\\
+%-------------------
+\int_0^1\,x\,\sin\,n\pi x\,dx&=[x(-\frac{1}{n\pi}\cos\,n\pi x)+\frac{1}{n^2\pi^2}\sin\,n\pi x\big]_0^1\\
+&=-\frac{1}{n\pi}(-1)^n
+\end{align*}
+Substitute into \eqref{s1} gives
+\begin{align}
+A_n&=\frac{2A(-1)^n}{n^3\pi^3a^2}
+\end{align}
+Since $g(x)=0$, thus $B_n=0$. From \eqref{s2},
+\begin{equation}
+v(x,t)=\frac{2A}{a^2\pi^3}\sum_{n=1}^\infty\,\left[\frac{(-1)^n}{n^3}\right]\cos\,n\pi at\,\sin\,n\pi x
+\end{equation}
+Solution:
+\begin{align*}
+u(x,t)&=\psi(x)+v(x,t)\\
+&=\frac{A}{6a^2}(x-x^3)+\frac{2A}{a^2\pi^3}\sum_{n=1}^\infty\,\left[\frac{(-1)^n}{n^3}\right]\cos\,n\pi at\,\sin\,n\pi x
+\end{align*}
+%---------------------------------
+\shabox{Q2 Dec 2014}\\
+Consider the following BVP
+\begin{align}
+u_{tt}(x,t)&=\frac{1}{25}u_{xx}(x,t)+\sin\,\frac{x}{2},\,\,0<x<1,\,\,t>0\label{q2}\\
+u(0,t)&=0,\,t>0\label{q2bc1}\\
+u_x(1,t)&=0,\,t>0\label{q2bc2}\\
+u_t(x,0)&=0,\,0<x<\pi\label{q2ic1}\\
+u(x,0)&=200\,\sin\,\frac{x}{2},\,0<x<1\label{q2ic2}
+\end{align}
+a) Interpret the boundary and initial conditions.\\
+b) Determine $u(x,t)$ for $t>0$.\\
+\shabox{Solution};;\\
+a) IC \eqref{q2ic2}($f(x)=200\,\sin\,\frac{x}{2}$) denotes the initial vertical displacement (transverse vibration) distribution throughout.\\
+IC \eqref{q2ic1} denotes the initial velocity is zero (release from rest).\\
+BC: $u(0,t)=0$  means that displacement zero at $x=0$.\\
+BC: $u_x(1,t)=0$ is called {\bf free-end-condition}\\
+b) Let 
+\begin{align}
+u(x,t)&=v(x,y)+\psi(x)\label{q2de1}
+\end{align}
+Substitute \eqref{q2de1}into pde gives
+\begin{align*}
+u_{tt}&=\frac{1}{25}u_{xx}+\sin\,\frac{x}{2}\\
+\frac{\partial ^2v}{\partial t^2}&=\frac{1}{25}\left(\frac{\partial^2v}{\partial x^2}+\psi^{''}\right)+\sin\,\frac{x}{2}
+\end{align*}
+gives ODE and homogeneous PdE.
+\begin{align}
+\frac{1}{25}\psi^{''}+\sin\,\frac{x}{2}&=0\label{q2deode1}\\
+\frac{\partial^2v}{\partial t^2}&=\frac{1}{25}\frac{\partial^2v}{\partial x^2}\label{pde2}
+\end{align}
+BC:$u(0,t)=v(0,t)+\psi(0)=0$ gives $\psi(0)=0\leftarrow$\shabox{Since $v(0,t)=0$}\\
+BC:=$u_x(1,t)=v_x(1,t)+\psi_x(1)=0$ gives $\psi_x(1)=0\leftarrow$\shabox{Since $v_x(1,t)=0$}\\
+Solve eqn \eqref{q2deode1},
+\begin{align*}
+\psi^{''}&=-25\,\sin\,\frac{x}{2}\\
+\psi^{'}&=-25\,\frac{1}{1/2}(-\cos\,\frac{x}{2})+c_1\\
+&=50\,\cos\,\frac{x}{2}+c_1\\
+\psi(x)&=100\,\sin\,\frac{x}{2}+c_1x+c_2
+\end{align*}
+Apply BC:$\psi(0)=0$ gives\\
+$0=\psi(0)=100\,\sin\frac{0}{2}+c_1(0)+c_2\to c_2=0$. Thus
+\begin{align}
+\psi(x)&=100\,\sin\,\frac{x}{2}+c_1x\label{psi2}\\
+\psi_x(x)&=50\,\cos\,\frac{x}{2}+c_1\label{psi3}
+\end{align}
+Next apply BC:  $\psi_x(1)=0$\\
+  $\psi_x(1)=0=50\,\cos\,\frac{1}{2}+c_1(1)\to c_1=-50\,\cos\,\frac{1}{2}=-49.9$.\\
+The solution is
+\begin{equation}
+\psi(x)=100\,\sin\,\frac{x}{2}-49.9x
+\end{equation}
+For PDE \eqref{pde2} subject to\\
+$v(0,t)=0,\,v_x(1,t)=0,\,0<x<1$\\
+$v(x,0)=200\,\sin\,\frac{x}{2}-\psi(x)$\\
+Solve \eqref{pde2} by using the method of separation of variables. For cases $\lambda=0$ and $\lambda=-\alpha^2$ give the trivial solution. Now for $\lambda=\alpha^2$, gives\\
+$v(x,t)=\sum_{n=1}^\infty\left(A_n\,\cos\,n\pi a t+B_n\,\sin\,n\pi a t\right)\sin\,n\pi x\label{s2}$\\
+Apply IC: $v_t(x,t)=0$,$t=0$
+\begin{align*}
+\frac{\partial v}{\partial t}&=\sum_{n=1}^\infty\,(-n\pi aA_n\,\sin\,n\pi at+n\pi B_n\,\cos\,n\pi at)\sin\,n\pi x\\
+0=v_t(x,0)&=\sum_{n=1}^\infty\,(-n\pi aB_n)\sin\,n\pi x
+\end{align*}
+Half-range of 0 of sine series will give $B_0=0$. Thus
+\begin{equation}
+v(x,t)=\sum_{i=1}^\infty\,(A_n\,\cos\,n\pi at)\sin\,n\pi x
+\end{equation}
+Now apply IC: $u(x,0)=200\,\sin\,\frac{x}{x}\to v(x,0)=200\,\sin\,\frac{x}{2}-\psi$,
+
+\begin{align*}
+v(x,0)=200\,\sin\,\frac{x}{2}-(100\,\sin\,\frac{x}{2}-43.9)&=\sum_{n=1}^\infty\,A[n]\,\sin\,n\pi x\\
+\end{align*}
+Half-range of $100\,\sin\,\frac{x}{2}+43.9$ of sine series will give $A_n$,
+\begin{align*}
+A_n&=\frac{2}{\pi}\int_0^1\,(43.9+100\,\sin\,\frac{x}{2})\sin\,n\pi\,x\,dx\\
+&=\frac{2}{\pi}\left[\left(\frac{43.9}{n\pi}\right)(-\cos\,n\pi x)\right]_0^1+\frac{200}{\pi}\int_0^1\,\frac{1}{2}[\cos(\frac{1}{2}-n\pi)x+\cos(\frac{1}{2}+n\pi)x]dx\\
+&=\frac{2}{\pi}\left[\left(\frac{43.9}{n\pi}\right)(-\cos\,n\pi x)\right]_0^1+\frac{100}{\pi}\left[\frac{1}{(1/2-n\pi)}\sin\,(1/2-n\pi)x+\frac{1}{(1/2+n\pi)}\sin(1/2+n\pi )x\right]_0^1\\
+&=\frac{87.8}{n\pi^2}(1-(-1)^n)+\frac{1}{(1/2-n\pi)}(-\sin\,\frac{1}{2})+\frac{1}{(1/2+n\pi)}(-\sin\,\frac{1}{2})\\
+&\leftarrow\shabox{use $\cos (A+B)+\cos(A-B)=2\sin\,A\,\sin \,B$}\\
+&=\frac{87.8}{n\pi^2}(1-(-1)^n)-\frac{1}{\frac{1}{4}-n^2\pi^2}\sin\,\frac{1}{2}\\
+&=\frac{87.8}{n\pi^2}(1-(-1)^n)-\frac{0.5}{1/4-n^2\pi^2}\\
+&=\frac{87.8}{n\pi^2}(1-(-1)^n)-\frac{2}{1-n^2\pi^2}
+\end{align*}
+Hence the solution is given by
+\begin{align}
+u(x,t)&=\psi(x)+v(x,t)\\
+&=100\,\sin\,\frac{x}{2}-43.9+\sum_{n=1}^\infty\left(\frac{87.8}{n\pi^2}(1-(-1)^n)-\frac{2}{1-n^2\pi^2}\right)\cos\,n\pi at\,\sin\,n\pi x
+\end{align}
+%---------------------------
+\newpage
+\section{Laplace Equation}
+%\shabox{Q4 Dec 2014}
+\begin{center}
+---------------------------------------------------
+\end{center}
+Standard Formula
+\begin{align}
+u_{xx}+u_{yy}&=0,\,\,0<x<a,\,\,0<y<b\label{Ldec14a}\\
+s.t\,\\,&\nonumber\\
+%u(0,x)&=0,\,\,u(1,y)=f(y),\,\,0<y<1\label{bcl1}\\
+\frac{\partial u}{\partial x}\big|_{x=0}&=0,\,\,\frac{\partial u}{\partial x}\big|_{x=a}=0, , 0<y<b\label{bcl2a}\\
+u(x,0)&=0,\,\,u(x,b)=f(x),\,\,0<x<a\label{bcl1a}
+\end{align}
+\shabox{Solution}:
+\begin{align}
+u(x,t)&=A_0y+\sum_{n=1}^\infty\,A_n\,\sinh\,\frac{n\pi}{a}y\,\cos\,\frac{n\pi}{a}x\label{s1}\\
+A_n&=\frac{2}{a\,\sinh\,\frac{n\pi}{a}b}\int_0^a\,f(x)\,\cos\,\frac{n\pi}{a}x\,dx\label{s2}
+\end{align}
+\begin{center}
+------------------------------------------------------
+\end{center}
+\shabox{Q4 Dec 2014}
+Given
+\begin{align}
+u_{xx}+u_{yy}&=0,\,\,0<x<1,\,\,0<y<1\label{Ldec14}\\
+s.t\,\\,&\nonumber\\
+%u(0,x)&=0,\,\,u(1,y)=f(y),\,\,0<y<1\label{bcl1}\\
+\frac{\partial u}{\partial y}\big|_{y=0}&=0,\,\,\frac{\partial u}{\partial y}\big|_{y=1}=0, , 0<x<1\label{bcl2}\\
+u(0,x)&=0,\,\,u(1,y)=f(y),\,\,0<y<1\label{bcl1}
+\end{align}
+\shabox{Solution}:
+Use the separation of variable method, $u(x,y)=X(x)Y(y)$. Substitute into pde \eqref{Ldec14},
+\begin{align*}
+X^{''}Y+XY^{''}&=0\\
+\frac{Y^{''}}{Y}&=-\frac{X^{''}}{X}=-\lambda
+\end{align*}
+leads to two ODEs.
+\begin{align}
+Y^{''}+\lambda Y&=0\label{Lap1}\\
+X^{''}-\lambda X&=0\label{Lap2}
+\end{align}
+For $\lambda=0$ gives $Y(y)=c_1$ and $\lambda=-\alpha^2$ gives trivial solution. Now for $\lambda=\alpha^2$, and translate BC into $Y^{'}=0$ and $Y^{'}(1)=0$, \eqref{Lap1} becomes 
+\begin{equation}
+Y^{''}+\alpha^2 Y=0,\,\,Y^{'}(0)=0,\,\,Y^{'}(1)=0\label{Lap3}
+\end{equation}
+Solve \eqref{Lap3} gives
+\begin{equation}
+Y=c_1\,\cos\,\alpha y+c_2\,\sin\,\alpha y\label{Lap4}
+\end{equation}
+Apply BC: $Y^{'}(0)=0$,
+\begin{align*}
+y^{,}&=-c_1\alpha\,\sin\,\alpha y+c_2\alpha\,\cos\,\alpha y\\
+0&=c_1\alpha(1)\to c_2=0.
+\end{align*}
+So \eqref{Lap4} becomes
+\begin{align}
+Y&=c_1\,\cos\,\alpha y\\
+Y^{'}&=-c_1\alpha\,\sin\,\alpha y
+\end{align}
+Use BC: $Y^{'}(1)=1$. For non trivial $C_1\neq 0$, $\sin\,\alpha y=0\to \alpha=n\pi$. Thus for $n=0$, and $n\ge 1$, the eigenfunction  of \eqref{Lap3} are\\
+
+$Y=c_1,\,n=0$ and $Y=c_1\,\cos\,n\pi y,\,\,n=1,2,\ldots,$.\\
+Now by interchange $x\leftrightarrow y$, use \eqref{s1},the solution is
+\begin{equation}
+u(x,y)=A_0x+\sum_{n=1}^\infty\,A_n\,\sinh\,n\pi x\cos\,n\pi y
+\end{equation}
+Where, from \eqref{s2}
+\begin{align*}
+A_n&=\frac{2}{\sinh\,n\pi}\int_0^1\,f(y)\,\cos\,n\pi y\,dy
+\end{align*}

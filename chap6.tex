@@ -1,0 +1,64 @@
+% chapter 8
+\chapter{Jun 2014}
+\shabox{Q5}\\
+Given 
+\begin{align*}
+u_{rr}+\frac{1}{r}u-r+\frac{1}{r^2}u-{\theta\theta}&=0,\,r>c,\,\,-\pi\le\theta\le\pi\\
+u(c,\theta)&=f(\theta),\,-\pi\le\theta\le\pi
+\end{align*}
+a) Determine the solutions for $R(r)$-problem:\\
+Let $R=r^m,\,R^{'}=mr^{m-1},\,R^{''}=m(m-1)r^{m-2}$ and sunstitute into
+\begin{align}
+r^2R^{''}+rR^{'}-\lambda R&=0\\
+r^2m(m-1)r^{m-2}+rmr^{m-1}-\lambda r^m&=0\\
+(m^2-\lambda)r^m&=0\\
+\text{Since $r^m\neq 0$},&\\
+m&=0,0\leftarrow\shabox{for $\lambda=0$}\\
+m&=n,-n\leftarrow\shabox{for $\lambda=n^2$}
+\end{align}
+The solution are
+\begin{align}
+R(r)&=c_1+c_2\,\ln\,r\label{q5j14a}\\
+R(r)&=c_1r^n+c_2r^{-n}\label{q5j14b}
+\end{align}
+$R(r)$ are unbounded as $r$ approaches to $\infty$.\\
+The solution of $R(r)$-problem are
+\begin{align}
+R(r)&=c_1\\
+R(r)&=c_2r^{-n}
+\end{align}
+
+
+b)Thus The product  solution is
+\begin{align}
+u_n(r,\theta)&=A_0c_1+c_2r^{-n}(c_1\,\cos\,n\theta+c_2\,\sin\,n\theta)\\
+&=B_0+r^{-n}(A_n\,\cos\,n\theta+B_n\,\sin\,n\theta)\leftarrow\shabox{$B_0=A_0c_1$, $A_n=c_1c_2$, $B_n=c_1c_2$}
+\end{align}
+Hence the general solution is
+\begin{align}
+u(r,\theta)&=B_0+\sum_{n=1}^\infty\,r^{-n}(A_n\,\cos\,n\theta+B_n\,\sin\,n\theta)\label{soq5j14}
+\end{align}
+Now apply BC:$f(\theta)=u(1,\theta)=\pi-|\theta|$
+\begin{align*}
+B_0&=\frac{1}{2\pi}\int_{-\pi}^{\pi}(\pi-|\theta|)\,d\theta\\
+&=\frac{1}{2\pi}\int_{-\pi}^0(\pi-(-\theta))\,d\theta+\frac{1}{2\pi}\int_{0}^{\pi}(\pi-\theta)\,d\theta\\
+&=\frac{1}{2\pi}\left[\pi\theta+\frac{1}{2}\theta^2\right]_{-\pi}^0+\frac{1}{2\pi}\left[\pi\theta-\frac{1}{2}\theta^2\right]_0^\pi\\
+&=\frac{1}{2\pi}(0-(\pi^2+\frac{1}{2}\pi^2)+\frac{1}{2\pi}(\pi^2-\frac{1}{2}\pi^2)\\
+&=\frac{1}{2}\pi
+\end{align*}
+\begin{align*}
+A_n&=\frac{1}{\pi}\int_{-\pi}^\pi(\pi-|\theta|)\,\cos\,n\theta\,d\theta\\
+&=\frac{1}{\pi}\int_{-\pi}^0(\pi+\theta)\cos\,n\theta\,d\theta+\frac{1}{\pi}\int_0^\pi(\pi-\theta)\cos\,n\pi\,d\theta\\
+&=-\frac{(-1+(-1)^2)}{\pi n^2}+-\frac{(-1+(-1)^2)}{\pi n^2}\\
+&=-\frac{2(-1+(-1)^n)}{\pi n^2}
+\end{align*}
+\begin{align}
+B_n&=\frac{1}{\pi}\int_{-\pi}^\pi(\pi-|\theta|)\,\sin\,n\theta\,d\theta\nonumber\\
+&=\frac{1}{\pi}\int_{-\pi}^0(\pi+\theta)\sin\,n\theta\,d\theta+\frac{1}{\pi}\int_0^\pi(\pi-\theta)\sin\,n\theta\,d\theta\nonumber\\
+&=\frac{(-\pi n+\sin(\pi n))}{\pi n^2}-\frac{(-\pi n+\sin(\pi n))}{\pi n^2}\\
+&=0
+\end{align}
+The solution is give by \eqref{soq5j14} where $B_0$, $A_n$ and $B_n$ is given by the above .
+
+
+

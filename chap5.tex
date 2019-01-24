@@ -1,0 +1,604 @@
+\chapter{VBP In Polar coordinate}
+\section{Exercise 13.1/ Q5.Jun 2012}
+\begin{prob}
+\shabox{Q13.9}
+\end{prob}
+Solve VBP
+\begin{align*}
+\frac{\partial^2u}{\partial r^2}+\frac{1}{r}\frac{\partial u}{\partial r}+\frac{1}{r^2}\frac{\partial^2 u}{\partial\theta^2}&=0,\,0<\theta<2\pi,\,\,a<r<b\\
+u(a,\theta)=f(\theta),\,u(b,\theta)=0\\
+%u(r,0)&=0,\,\,u(r,\theta)=0,\,a<r<b
+\end{align*}
+%-------------------
+\shabox{Solution}\\
+a) Defining $u(r,\theta)=R(r)\Theta(\theta)$ and separating variable gives,
+\begin{align*}
+R^{''}\Theta+\frac{1}{r}R^{'}\Theta+\frac{1}{r^2}R\Theta^{''}&=0\\
+r^2R^{''}\Theta+rR^{'}\Theta+R\Theta^{''}&=0\leftarrow\shabox{multiply by $r$}\\
+r^2R^{''}\Theta+rR^{'}\Theta&=-R\Theta^{''}\\
+\frac{r^2R^{''}+rR^{'}}{R}&=-\frac{\Theta^{''}}{\Theta}=\lambda
+\end{align*}
+The separate equations are
+\begin{align}
+r^2R^{''}+rR^{'}-\lambda R&=0\label{pr1}\\
+\Theta^{''}+\lambda\Theta&=0\label{pr2}
+\end{align}
+Solve \eqref{pr2} of the problem
+\begin{equation}
+\Theta^{''}+\lambda\Theta=0,\,\,\, \Theta(\theta)=\Theta(\theta+2\pi)
+\end{equation}\label{pr2a}
+For $\lambda=0$:
+\begin{equation}
+\Theta(\theta)=c_1+c_2\theta\label{pr3}
+\end{equation}
+For $\lambda=-\alpha<0$.
+\begin{equation}
+\Theta(\theta)=c_1\,\cosh\,\,\alpha \theta+c_2\,\sinh\,\alpha\theta\label{pr4}
+\end{equation}
+For $\lambda=\alpha^2>0$,
+\begin{equation}
+\Theta(\theta)=c_1\cos\,\alpha\theta+c_2\,\sin\,\alpha\theta\label{pr5}
+\end{equation}
+Solution \eqref{pr3} is nonperiodic unless $C_2=0$. Similarly, solution \eqref{pr4} is non periodic unless $c_1=0$ and $c_2=0$. Solution \eqref{pr5} will be $2\pi$-periodic if we take $\alpha=n$. the eigenvalues of \eqref{pr2a} are then $\lambda_0=0$ and $\lambda_n=n^2,\,n=1,2,3.\ldots$. If we correspond $\lambda_0=0$\\ with $n=0$, the eigenfunctions of \eqref{pr2a} are
+\begin{equation}
+\Theta(\theta)=c_1,\,\,n=0 \text{and}\,\,\Theta(\theta)=c_1\,\cos\,n\theta+c_2\,\sin\,n\theta,\,\, n=1,2,3,\ldots\label{solaa}
+\end{equation}
+%--------------
+Now solve \eqref{pr1}. \\
+For $\lambda_0=0$, $n=0$
+Let $R=r^m$, $R^{'}=mr^{m-1}$ and $R^{''}=m(m-1)r^{m-2}$, substituting into \eqref{pr1},
+\begin{align*}
+r^2m(m-1)r^{m-2}+rmr^{m-1}&=0\\
+(m(m-1)+m)r^{m-1}&=0\\
+m&=0,0
+\end{align*}
+So, the solution is
+\begin{equation}
+R(r)=c_1+c_2\,\ln\,r\label{sop1}
+\end{equation}
+For $\lambda=n^2$,
+\begin{align*}
+r^2m(m-1)r^{m-2}+rmr^{m-1}-n^2r^m&=0\\
+m^2-n^2&=0\\
+m&=n,-n
+\end{align*}
+The solution is 
+\begin{equation}
+R(r)=c_1r^n+c_2r^{-n}\label{sop2a}
+\end{equation}
+%-----------------
+Apply BC, $u(b,\theta)=R(b)\Theta(\theta)=0$. Since $\Theta(\theta)\neq 0$, thus $R(b)=0$ in \eqref{sop1} and \eqref{sop2a} gives
+\begin{align}
+R(b)&=c_1+c_2\,\ln\,b=0\leftrightarrow c_1=-c_2\,\ln\,b\\
+So\,\,R(r)&=c_2(\ln\,r-\ln\,b)=c_2\,\ln\,\frac{r}{b}\leftarrow\shabox{from \eqref{sop1}}\label{solab}
+\end{align}
+So from \eqref{solaa} and \eqref{solab}, a product solution when $\lambda_0=0$ is
+\begin{align}
+u_0(r,\theta)&=R(r)\Theta(\theta)\\
+&=\left(c_2\ln\,\frac{r}{b}\right)c_1\\
+&=A_0\,\ln\,\frac{r}{b}\leftarrow\shabox{$c_1c_2=A_0$}\label{solac}
+\end{align}
+%----------------
+Now apply BC; $R(b)=0$ on \eqref{sop2a} give
+\begin{align}
+R(b)&=c_1b^n+c_2b^{-n}=0\leftrightarrow c_1=-c_0b^{-n},\,\,c_2=c_0b^n\\
+So\,\,R(r)&=-c_0b^{-n}r^n+c_0b^nr^{-n}\\
+&=c_0\left(\left(\frac{b}{r}\right)^n-\left(\frac{r}{b}\right)^n\right)\label{sol3a}
+\end{align}
+A product solution when $\lambda_n=n^2,\,\,n=1,2,\ldots$ then
+\begin{align}
+u_n(r,\theta)&=c_0\left(\left(\frac{b}{r}\right)^n-\left(\frac{r}{b}\right)^n\right)(c_1\,\cos\,n\theta+c_2\,\sin\,n\theta)\label{sol3b}
+\end{align}
+
+Form \eqref{solac} and \eqref{sol3b}  and by superposition principle then  solution is,
+
+\begin{align}
+u(r,\theta)&=u_n(r,\theta)+u_n(r,\theta)\\
+&=A_0\,\ln\,\frac{r}{b}+\sum_{i=1}^nc_0\left(\left(\frac{b}{r}\right)^n-\left(\frac{r}{b}\right)^n\right)(c_1\,\cos\,n\theta+c_2\,\sin\,n\theta)\nonumber\\
+&=A_0\,\ln\,\frac{r}{b}+\sum_{i=1}^n\left(\left(\frac{b}{r}\right)^n-\left(\frac{r}{b}\right)^n\right)(A_n\,\cos\,n\theta+B_n\,\sin\,n\theta)\leftarrow\shabox{$c_0c_1=A_n$ and $c_0c_2=B_n$}\label{so1a}
+\end{align}
+
+%-----------------
+b) If $a=1$, $b=2$ and $f(\theta)=\cos\,\theta$, determine the specific solution $u(r,\theta)$:\\
+Apply BC $u(a,\theta)=f(\theta)$ gives
+\begin{align}
+f(\theta)=u(a,\theta)&=A_0\,\ln\,\frac{a}{b}+\sum_{i=1}^n\left(\left(\frac{b}{a}\right)^n-\left(\frac{a}{b}\right)^n\right)(A_n\,\cos\,n\theta+B_n\,\sin\,n\theta)\\
+%C&=-A_0\,\ln\,b-\sum_{i=1}^n\left(b^n+\frac{1}{b^n}\right)(A_n\,\cos\,n\theta+B_n\,\sin\,n\theta)\label{sop2}
+\end{align}
+where
+\begin{align*}
+A_0\ln\,\frac{1}{2}&=\frac{1}{2\pi}\int_0^{2\pi}\,f(\theta)\,d\theta\\
+A_0&=\frac{1}{2\pi\ln\frac{1}{2}}\int_0^{2\pi}\,\cos\,\theta\,d\theta\\
+&=\frac{1}{2\pi}[\sin\,\theta]_0^{2\pi}\\
+&=0\\
+%-------------------------
+A_n\left(\left(\frac{b}{a}\right)^n-\left(\frac{a}{b}\right)^n\right)&=\frac{1}{2\pi}\int_0^{2\pi}\,f(\theta)\,\cos\,n\theta\,d\theta\\
+A_n&=\frac{1}{\left(\left(\frac{b}{a}\right)^n-\left(\frac{a}{b}\right)^n\right)\pi}\,\int_0^{2\pi}\,f(\theta)\,\cos\,n\theta\,d\theta\\
+&=\frac{1}{\left(\left(\frac{2}{1}\right)^n-\left(\frac{1}{2}\right)^n\right)\pi}\,\int_0^{2\pi}\,\cos\,\theta\,\cos\,n\theta\,d\theta\\
+&=\frac{2^1}{(4^1-1)\pi}\int_0^{2\pi}\cos^2\,\theta\theta\leftarrow\shabox{$n=1$. If $n\neq 1$, then orthogonal function, 0}\\
+&=\frac{2}{3\pi}\int_0^{2\pi}\frac{1}{2}(1+\cos\,2\theta)\,d\theta\\
+&=\frac{1}{3\pi}[\theta+\frac{1}{2}\sin\,2\theta]_0^{2\pi}\\
+&=\frac{1}{3\pi}(2\pi)=\frac{2}{3}\\
+%------------------
+B_n\left(\left(\frac{2}{1}\right)^n-\left(\frac{1}{2}\right)^n\right)&=\frac{1}{2\pi}\int_0^{2\pi}\,\cos\,\theta\,\sin\,n\theta\,d\theta\\
+B_n&=\frac{1}{\left(\left(\frac{2}{1}\right)^n-\left(\frac{1}{2}\right)^n\right)\pi}\,\int_0^{2\pi}\,\cos\,\theta\,\sin\,n\theta\,d\theta\\
+&=\frac{2^n}{(4^n-1)\pi}\int_0^{2\pi}\frac{1}{2}(\sin(1+n)\theta-\sin(1-n)\theta)\,d\theta\\
+&=\frac{2^{n-1}}{(4^n-1)\pi}\left[\frac{1}{1+n}(-\cos(1+n)\theta+\frac{1}{1-n}\cos(1-n)\theta\right]_0^{2\pi}\\
+&=\frac{2^{n-1}}{(4^n-1)\pi}\left[\frac{-1}{1+n}(\cos(1+n)2\pi-1)+\frac{1}{1-n}(\cos(1-n)2\pi-1)\right]\\
+\end{align*}
+Consider
+\begin{align*}
+\cos(1+n)2\pi&=\cos(2\pi)\cos(2n\pi)-\sin(2\pi)\sin(2n\pi)\\
+&=1\\
+\cos(1-n)2\pi&=\cos(2\pi)\cos(2n\pi)+\sin(2\pi)\sin(2n\pi)\\
+&=1
+\end{align*}
+So 
+\begin{align*}
+B_n&=0
+\end{align*}
+The specific solution
+\begin{equation}
+u(r,\theta)=\frac{2}{3}\sum_{n=1}^n\left(2^n-2^{-n}\right)\cos\,n\theta
+%------------------
+\end{equation}
+\section{Wedge-shape plate}
+\begin{itemize}
+\item The Dirichlet Problem. The problem is to find a harmonic function u inside
+a domain $D$ so that the values of u are prescribed on the boundary $\partial D$ of $D$ $(u = f$
+is given on the boundary $∂D$).
+\item The Neumann Problem. The problem is to find a harmonic function$ u$
+inside the domain $D$ so that the normal derivatives of $u$, (i.e. $∂u$
+∂η ) are prescribed
+on the boundary $(\frac{\partial u}
+{\partial \eta} = g$ on $\partial D$.) Recall that the normal derivative at a point.
+\end{itemize}
+\subsection{Q5 Jan 2012}
+\begin{figure}[hbt!]\centering
+\includegraphics[width=0.6\textwidth]{wedge2.jpg}
+%\caption{Steady-state temperature in a $45^\circ$ sector}
+\end{figure}
+\shabox{Solution}\\
+a) BVP
+\begin{align}
+u_{rr}+\frac{1}{r}u_r+\frac{1}{r^2}u_{\theta\theta}&=0,\,\,\frac{1}{2}<r<1\label{w1}\\
+s.t&\\
+u(r,0)&=0,\,\,\frac{1}{2}<r<1\label{w2}\\
+u(\frac{1}{2},\theta)&=3,\,\,0<\theta<\frac{\pi}{4}\label{w3}\\
+u_r(1,\theta)&=0,\,\,0<\theta<\frac{\pi}{4}\label{w4}\\
+u(r,\frac{\pi}{4})&=0,\,\,\frac{1}{2}<r<1\label{w5}
+\end{align}
+b) By considering $u(r,\theta)=R(r)H(\theta)$, solve the $H(\theta)$-problem and the $R(r)$-problem.\\
+From \eqref{w1},
+\begin{align}
+R^{''}H+\frac{1}{r}R^{'}H+\frac{1}{r^2}RH^{''}&=0\nonumber\\
+r^2R^{''}H+rR^{'}H+RH^{''}&=0\nonumber\\
+r^2R^{''}H+rR^{'}H&=-RH^{''}\nonumber\\
+\frac{r^2R^{''}+rR^{'}}{R}&=-\frac{H^{''}}{H}=\lambda\nonumber
+\end{align}
+leads to two ODEs
+\begin{align}
+r^2R^{''}+rR^{'}-\lambda R&=0\label{w1a}\\
+H^{''}+\lambda H&=0\label{w1b}
+\end{align}
+We are looking for 
+\begin{equation}
+H^{''}+\lambda H=0,\,\label{w1aa}
+\end{equation}
+The three possibles general solution of \eqref{w1aa},
+\begin{align}
+H(\theta)&=c_1+c_2\theta,\,\,\lambda=0\label{w1ab}\\
+H(\theta)&=c_1\,\cosh\,\alpha\theta+c_2\,\sinh\,\alpha\theta,\,\,\lambda=-\alpha^2<0\label{w1ac}\\
+H(\theta)&=c_1\,\cos\,\alpha\theta+c_2\,\sin\,\alpha\theta,\,\,\lambda=\alpha^2>0\label{w1ad}
+\end{align}
+%Solution \eqref{w1ab} is nonperiodic unless we define $c_2=0$. 
+The solution of Cauchy-Euler \eqref{w1a} are as follows. Let $R=r^m, R^{'}=mr^{m-1}, R^{''}=m(m-1)$. Substitute into \eqref{w1a} and for $\lambda=0$, becomes
+\begin{align*}
+r^2m(m-1)r^{m-2}+rmr^{m-1}&=0\\
+m(m-1)r^m+mr^{m}&=\\
+m^2r^m&=0\\
+m&=0,0\leftarrow\shabox{equal real, $R(r)=c_1r^m+c_2r^m\,\ln\,r$}
+\end{align*}
+Thus the solution is
+\begin{equation}
+R(r)=c_1+c_2\,\ln\,r\label{swr1}
+\end{equation}
+For $\lambda_n=\alpha^2$, \eqref{w1a} becomes
+\begin{align*}
+r^2m(m-1)r^{m-2}+rmr^{m-1}&-\alpha^2 r^m=0\\
+(m^2-\alpha^2)r^m&=0\\
+m&=\alpha, -\alpha\leftarrow\shabox{real and different olution$R(r)=c_1r^{m_1}+c_2r^{-m_2}$}
+\end{align*}
+Thus the solution is
+\begin{equation}
+R(r)=c_1r^\alpha+c_2r^{-\alpha}\label{swr2}
+\end{equation}
+%--------------------
+c) \underline{Apply BC on $H$-problem:}\\
+\\
+The BC \eqref{w2} and \eqref{w5}{w5} together with \eqref{w1a}  constitute a regular Sturm-Liouville problem\\
+
+
+Now apply BC \eqref{w2} and \eqref{w5}: $u(r,0)=R(r)H(0)=0$. Since $R(r)\neq 0$, so $H(0)=0$. $u(r,\pi/4)=0\to H(\frac{\pi}{4})=0$.\\
+The regular Sturm-Liouville problem:\\
+\begin{equation}
+H^{''}+\lambda H=0,\,\,H(0)=0,\,\,H(\frac{\pi}{4})=0.\label{sv1}
+\end{equation}
+From \eqref{w1ab} gives
+\begin{align}
+H(0)&=c_1+c_2(0)=0\to c_2=0\nonumber\\
+So\,\,H(\theta)&=c_1\\
+H(\frac{\pi}{4})&=c_1=0\to c_1=0
+\end{align}
+Thus $u(r,\theta)=0$ when $\lambda=0$.\\
+From \eqref{w1ac},
+\begin{align}
+u(r,0)&=c_1\,\cosh(0)+c_1\,\sinh(0)=0\nonumber\\
+&=c_1=0\to\,c_1=0.\nonumber\\
+So\, u(r,\theta)&=c_2\,\sinh\,\alpha\theta\label{sw1}
+\end{align}
+From BC \eqref{w5}: $u(r,\frac{\pi}{4})=R(r)H(\frac{\pi}{4})=0\to H(\frac{\pi}{4})=0$. %Let $\lambda_n=\alpha^2=n^2$, $n=0, 1,2\ldots $, from \eqref{sw1},
+\begin{align*}
+u(r,\frac{\pi}{4})&=c_1\,\sinh\,\alpha\frac{\pi}{4}
+\end{align*}
+%For nontrivial solution $c_2\neq 0$, so $\sin\,\alpha\frac{\pi}{4}=0\to \alpha=4n$. So  the problem \eqref{sv1} possesses eigenvalues $\lambda_n=4n,\,\,n=1,2,\ldots$. The eigenfunction is
+%\begin{equation}
+%H(\theta)=c_2\,\sin\,4n\theta,\,\,\,n=1,2,3,\ldots\label{sow1}
+%\end{equation}
+
+
+%is nonperiodic and unbounded unless when $n=0$. So the solution is $u(r,\theta)=0$.\\
+This solution is unbounded and nonperiodic unless $c_1=0$, So the solution is trivial.\\
+Now apply BC \eqref{w2} and \eqref{w5} on \eqref{w1ad},
+\begin{align*}
+u(r,0)&=c_1\,\cos(0)+c_2\,\sin(0)=0\\
+&=c_1=0\to c_1=0
+\end{align*}
+%----------------------
+For nontrivial solution $c_2\neq 0$, so $\sin\,\alpha\frac{\pi}{4}=0\to \alpha=4n$. So  the problem \eqref{sv1} possesses eigenvalues $\lambda_n=4n,\,\,n=1,2,\ldots$. The eigenfunction is
+\begin{equation}
+H(\theta)=c_2\,\sin\,4n\theta,\,\,\,n=1,2,3,\ldots\label{sow1}
+\end{equation}
+%So the solution will be $2\pi$-periodic if we take $\alpha=n,\,\,n=1,2,\ldots$. Thus $u(r\,\theta)=c_1\,\sin\,n\theta$.\\
+%Now use BC \eqref{w5} gives
+%\begin{align*}
+%u(r,\frac{\pi}{4})&=c_1\sin\,\frac{n\pi}{4}
+%\end{align*}
+\underline{Apply BC on $R$-problem}:\\
+Transform  BC \eqref{w3} %and \eqref{w4} 
+give $R^{'}(1)=0$. From \eqref{swr1}
+\begin{align*}
+R(r)&=c_1+c_2\,\ln\, r\\
+R^{'}(r)&=\frac{c_2}{r}\\
+R^{'}(0)&=\frac{c_2}{1}\to c_2=0
+\end{align*}
+$R(r)=C_1$,
+So the solution is trivial.\\
+Since we want $R(r)$ to be bounded as $r\to 0$, so eqn \eqref{swr2} we find that $c_2=0$ and $\lambda=\alpha=4n$. Thus \eqref{swr2} becomes
+\begin{equation}
+R(r)=c_1r^{4n}\label{sof1}
+\end{equation}
+%-------------------
+d) From \eqref{sow1} and \eqref{sof1} we obtain a product solution
+\begin{align*}
+u_n(r,\theta)&=R(r)H(\theta)\\
+&=c_1r^{4n}(c_2\,\sin\,4n\theta)\\
+&=A_nr^{4n}\sin\,4n\theta
+\end{align*}
+And by using the superposition principle we obtain the solution of the steady-state temperature,
+\begin{equation}
+u(r,\theta)=\sum_{n=1}^\infty\,A_nr^{4n}\,\sin\,4n\theta\label{sowl}
+\end{equation}
+Now find $A_n$: apply BC $u(1/2,\theta)=3$
+\begin{align*}
+u(\frac{1}{2},\theta)=3&=\sum_{n=1}^\infty\,A_n\left(\frac{1}{2}\right)^{4n}\\
+A_n\left(\frac{1}{2}\right)^{4n}&=\int_0^{\frac{\pi}{4}}3\,\sin\,4n\theta\,d\theta\\
+&=\frac{3}{4n}[-\cos\,4n\theta]_0^{\frac{\pi}{4}}\\
+&=\frac{3}{4n}(-\cos\,4n\frac{\pi}{4}+1)\\
+&=\frac{3}{4n}(1-(-1)^n)\\
+A_n&=\frac{3\cdot 2^{4n}}{4n}(1-(-1)^n)
+\end{align*}
+Therefore the steady-state temperature is
+\begin{equation}
+u(r,\theta)=\frac{3}{4}\sum_{n=1}^\infty\,\frac{(2r)^{4n}(1-(-1)^n)}{n}\,\sin\,4n\theta
+\end{equation}
+%----------------
+\section{Domain of Disk, Semi-Disk, Annulus and Wedge}
+\begin{enumerate}
+\item The Dirichlet Problem:
+\begin{figure}[hbt!]\centering
+\includegraphics[width=0.6\textwidth]{domain1.jpg}
+\caption{The Dirichlet Problem}
+\end{figure}
+%---------------------
+\item The Neumann Problem:
+\begin{figure}[hbt!]\centering
+\includegraphics[width=0.6\textwidth]{domain2.jpg}
+\caption{The Neumann Problem}
+\end{figure}
+\item Let a disk of radius, $r=a$. The domains are\\
+A wedge: $0<r<a; 0 < \beta$;\\
+An annulus: $0<a<r< b$;\\
+Exterior of a circle: $a<r<b$:
+\end{enumerate}
+\section{Q5 Jan 2013}
+\begin{description}
+\item a) The solution Laplace equation in polar
+$u_{rr}+\frac{1}{r}u_r+\frac{1}{r^2}u_{\theta\theta}=0$\\
+is given as\\
+$u(r,\theta)=A_0+B_0\,\ln\,r+ \sum_{n=1}^\infty\left(A_nr^{-n}+B_nr^n\right)\cos\,n\theta+\left(C_nr^{-n}+D_nr^n)\sin\,n\theta\right)$\\
+State the domain that describe heat distribution in,
+\begin{description}
+\item i) Disk,
+\item ii) Annulus,
+\item iii) Exterior Domain.
+\end{description}
+\item b) Consider a semi circular disk of radius $r=1$. The temperature on its circumference is governed by the function,
+$$f(\theta)=\pi\,\sin\,\theta-\sin\,2\theta $$
+while on its diameter the temperature is zero.
+\begin{description}
+\item i) Express the problem as a boundary problem in polar variables.
+\item ii) Let the solution be $u(r,\theta)=R(r)T(\theta)$ where $T(\theta)$ the angular component of the solution. By the separation of variables show that the solution, $u(r,\theta)$, within the semi circular disk is $u(r,\theta)=\pi r\,\sin\,\theta-r^2\sin\,2\theta$.
+\end{description}
+\end{description}
+\shabox{Solution}\\
+a) Let radius of the disk is $r=b$. The the domain of 
+\begin{description}
+\item Disk:$ D=\{0<r\le b,\,0<\theta\le 2\pi\}$
+\item Annulus: $D=\{a<r<b,\,0<\theta\le 2\pi\}$ where $a$= inner circumference of the disk, $b$=outer circumference of the disk.
+\item Exterior domain: $D=\{b<r<\infty,\,\,0\theta\le 2\pi\}$
+\end{description}
+b) i) BVP
+\begin{align*}
+u_{rr}+\frac{1}{r}u_r+\frac{1}{r^2}u_{\theta\theta}&=0,\,\,0<r\le r,\,\,0<\theta<\le \pi\\
+s.t\hspace{2cm}&\\
+u(r,0)&=0,\,\,0<r\le 1\\
+u(r,\pi)&=0,\,\,0<r\le 1,\,\,0<\theta\le \pi\\
+u(1,\theta)&=\pi\,\sin\,\theta-\sin\,2\theta,\,\,0<\theta\le\pi
+\end{align*}
+ii)\\
+Using the separation variable method $u(r,\theta)=R(r)T(\theta)$ and distribute into PDE gives
+\begin{align}
+R^{''}T+\frac{1}{r}R^{'}T+\frac{1}{r^2}RT^{''}&=0\nonumber\\
+r^2R^{''}T+rR^{'}T+RT^{''}&=0\nonumber\\
+\frac{r^2R^{''}+rR^{'}}{R}&=-\frac{T^{''}}{T}=\lambda\nonumber
+\end{align}
+leads to two ODEs,
+\begin{align}
+r^2R^{''}+rR^{'}-\lambda R&=0\label{Q5j12a}\\
+T^{''}+\lambda T&=0\label{Q5ja12b}
+\end{align}
+Translate BC : $u(r,0)=R(r)T(0)=0\to T(0)=0$, since $R(r)\neq 0$. And BC: $u(r,\pi)=R(r)T(\pi)=0\to T(\pi)=0$ since $R(r)\neq 0$.\\
+ODE \eqref{Q5ja12b} together the translated BC above will constitute the Sturm-Liouville problem,
+\begin{equation}
+T^{''}+\lambda T=0,\,\,T(0)=0,\,\,T(\pi)=0\label{Q5j12c}
+\end{equation}
+The solution of \eqref{Q5j12c} are
+\begin{align}
+T(\theta)&=c_1+c_2\theta,\,\,\text{for}\,\lambda=0\label{soq5j12a}\\
+T(\theta)&=c_1\,\cosh\,\alpha\theta=c_2\,\sinh\,\alpha\theta,\,\text{for}\,\lambda=-\alpha^2<0\label{soq5j12b}\\
+T(\theta)&=c_1\,\cos\,\alpha\theta+c_2\,\sin\,\alpha\theta,\,\,\text{for}\,\,\lambda=\alpha^2>0\label{soq5j12c}
+\end{align}
+Now use BC: $T(0)=0$ and $T(\pi)=0$:
+\begin{align*}
+T(0)&=c_1+c_2(0)\to c_1=0\\
+T(\theta)&=c_1\\
+T(\pi)&=c_1=0\to c_1=0
+\end{align*}
+Thus $u(r,\theta)=0$, a trivial solution. \\
+Eqn \eqref{soq5j12b},
+\begin{align*}
+T(0)&=c_1\,\cosh(0)=c_2\,\sinh(0)\to c_1=0\\
+T(\theta)&=c_1\,\cosh\,\alpha\theta\\
+T(\pi)&=c_1\cosh\,\alpha\phi=0\to c_1=0
+\end{align*}
+Thus the solution is trivial.\\
+Next apply BC, $T(0)=0$ and $T(\pi)=0$ on \eqref{soq5j12c} gives
+\begin{align*}
+T(0)&=c_1\,\cos\,(0)+c_2\,\sin\,\alpha(0)\\
+&=c_1(0)+0\to c_1=0\\
+T(\theta)&=c_1\,\sin\,\alpha\theta\\
+T(\pi)&=c_1\,\sin\,\alpha\pi=0
+\end{align*}
+For non trivial solution, $c_1\neq 0$, but $\sin\,\alpha\pi=0$. So $\alpha\pi=n\pi\to\alpha=n$. Thus the eigenvalue $\lambda_n=\alpha^2=n^2,\,\,n=1,2,\ldots$ and the correspondence eigen function of \eqref{Q5j12c} ,
+\begin{equation}
+T(\theta)=c_1\,\sin\,n\theta\label{sso1}
+\end{equation}
+Now we solve the Chauchy-Euler  problem \eqref{Q5j12a}. Let $R=r^m,\,R^{'}=mr^{m-1},\,R^{''}=m(m-1)r^{m-2} $ and substitute into \eqref{Q5j12a} becomes
+\begin{align}
+r^mm(m-1)t^{m-2}+rmr^{m-1}-\lambda r^m&=0\nonumber\\
+(m^2-m+m)r^{m}&=0\leftarrow\shabox{for $\lambda_0=0$}\nonumber\\
+m&=0,0\nonumber\\
+\text{So}\,\,\,R(t)&=c_1+c_2\,\ln\,r\leftarrow\shabox{$R(r)=c_1\,r^m+c_2\,r^m\,\ln\,r$}\label{sso2}\\ 
+r^mm(m-1)r^{m-2}+rmr^{m-1}-n^2r^m&=0\leftarrow\shabox{for $\lambda_n=\alpha^2$, $n=1,2,\ldots$}\nonumber\\
+(m^2-n^2)r^m&=0\nonumber\\
+m&=n,-n\nonumber\\
+\text{So}\,\,R(t)&=c_1r^n+c_2r^{-n}\leftarrow\shabox{real and different roots}\label{sso3}
+\end{align}
+For periodic solution $c_2=0$ of \eqref{sso2} and for bounded solution $c_2=0$ of \eqref{sso3}. A product solution is 
+\begin{equation}
+u_n(r,\theta)=c_1r^n\,c_1\,\sin\,n\theta
+\end{equation}
+By superposition principle, the solution is
+\begin{equation}
+u(r,\theta)=\sum_{n=1}^\infty\,A_nr^n\,\sin\,n\theta\leftarrow\shabox{$A_n=c_1c_2$}
+\end{equation}
+Now apply BC: $u(1,\theta)=\pi\,\sin\,\theta-\sin\,2\theta$ becomes
+\begin{align*}
+u(1,\theta)=\pi\,\sin\,\theta-\sin\,2\theta &=\sum_0^\infty(\pi\,\sin\,\theta-\sin\,2\theta)A_n(1^n)\sin\,n\theta\,d\theta\\
+A_n&=\frac{2}{\pi}\int_0^\pi(\pi\,\sin\,\theta-\sin\,2\theta)\sin\,n\theta\,d\theta\\
+&\leftarrow\shabox{half range of $\pi\,\sin\,\theta-\sin\,2\theta$ in sine series}\\
+&=\frac{2}{\pi}\int_0^\pi\,\pi\,\sin\,n\theta\,\sin\,\theta\,d\theta-\frac{2}{\pi}\int_0^\pi\,\sin\,2\theta\,\sin\,n\theta\,d\theta
+\end{align*}
+For different value of $n$ gives the results is zero (orthogonality).\\
+Now For $n=1\to A_1$:
+\begin{align*}
+A_1&=\frac{2}{\pi}\int_0^\pi\,\pi\,\sin^2\theta\,d\theta\\
+&=\frac{2}{\pi}\int_0^\pi\frac{\pi(1-\cos\,2\theta)}{2}\,d\theta\\
+&=[\theta-\frac{1}{2}\sin\,2\theta]_0^\pi\\
+&=(\pi-0)-0=\pi
+\end{align*}
+For $n=2\to A_2$;
+\begin{align*}
+A_2&==\frac{2}{\pi}\int_0^\pi\,\sin^2\,2\theta\,d\theta\\
+&=\frac{2}{\pi}\int_0^\pi\left(\frac{1-\cos\,2\theta}{2}\right)d\theta\\
+&=\frac{1}{\pi}[\theta-\frac{1}{2}\sin\,2\theta]_0^\pi\\
+&=\frac{1}{\pi}((1-0)-0)\\
+&=1
+\end{align*}
+The solution is
+\begin{align*}
+u(r,\theta)&=A_1r\,\sin\,n\theta+A_2r^n\,\sin\,n\theta\\
+&=\pi\,r\,\sin\,\theta-r^2\,\sin\,2\theta
+\end{align*}
+\subsection{Graph of $u(r,\theta)=\pi\,r\,\sin\,\theta-r^2\,\sin\,2\theta$}
+%\include{q5jan12}
+% dari maple
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{restart;}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{a:=Pi*r*sin(theta)-r^2*sin(2*theta);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{a := Pi*r*sin(theta)-r^2*sin(2*theta);}{%
+\[
+a := \pi \,r\,\mathrm{sin}(\theta ) - r^{2}\,\mathrm{sin}(2\,
+\theta )
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{plot3d(a,r=0..1,theta=0..Pi,axes=boxed);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{center}
+\mapleplot{q5jan1201.eps}
+\end{center}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{?plot3d}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\end{mapleinput}
+
+\end{maplegroup}
+%-------------------
+\subsection{APR 2011}
+\shabox{Q5}\\
+\shabox{a)}\\
+\underline{$H(\theta)$-problem}:Consider $u(r,theta)=R(r)H(\theta)$. Substitute into PDE give
+\begin{align}
+r^2R^{''}+rR^{'}-\lambda R&=0,\,\,a<r<b\label{q5ap11}\\
+H^{''}+\lambda H&=,\,\,0\le\theta\le\pi\label{q5ap11a}
+\end{align}
+Eqn \eqref{q5ap11a} together with BC constitutes Sturm-Lioville problem
+\begin{equation}
+H^{''}+\lambda H=0,\,\,H(0)=0,\,\,H(\pi)=0\label{q5ap11b}
+\end{equation}
+Solve problem \eqref{q5ap11b} becomes
+\begin{align}
+H(\theta)&=c_1+c_2\theta\leftarrow\shabox{for $\lambda=0$}\label{q5ap11c}\\
+H(\theta)&=c_1\,\cosh\,\alpha\theta+c_2\,\sinh\,\alpha\theta\leftarrow\shabox{for $\lambda=-\alpha^2<0$}\label{q5ap11d}\\
+H(\theta)&=c_1\,\cos\,\alpha\theta+c_2\,\sin\,\alpha\theta\leftarrow\shabox{for $\lambda=\alpha^2>0$}\label{q5ap11e}
+\end{align}
+Apply BC:\\
+For \eqref{q5ap11c},
+\begin{align*}
+H(0)=0=c_1+c_2(0)\to c_1=0\\
+H(\theta)&=c_1\\
+H(\pi)&=c_1=0\to c_1=0
+\end{align*}
+Thus \eqref{q5ap11c} gives  trivial solution.\\
+For \eqref{q5ap11d},
+\begin{align*}
+H(0)&=c_1(1)+c_2(0)\to c_1=0\\
+H(\theta)&=c_2\,\sinh\,\alpha\theta\\
+H(\pi)&=c_1\,\cosh(\alpha\pi)=0\to c_1
+\end{align*}
+Similarly, \eqref{q5ap11d} gives trivial solution.\\
+Now for \eqref{q5ap11e} gives
+\begin{align*}
+H(0)&=c_1(1)+c_2(0)\to c_1=0\\
+H(\theta)&=c_2\,\sin\,\alpha\theta\\
+H(\pi)&=c_2\,\sin\,\alpha\pi=0
+\end{align*}
+For non trivial solution, $c_2\neq 0$ but $\sin\,\alpha\pi=0\to \alpha\pi=n\pi\to\alpha=n$ That is $\lambda=n^2$.So the solution
+\begin{equation}
+H(\theta)=c_2\,\sin\,n\theta,\,\,n=1,2,\ldots\label{soq5ap11a}
+\end{equation}
+\underline{$R(r)$-Problem}:Now solve Chauchy-Euler \eqref{q5ap11}. Let $R=r^m$ gives
+\begin{align*}
+r^2m(m-1)r^{m-2}+rmr^{m-1}-\lambda r^m&=0\\
+(m^2-\lambda)r^m&=0\\
+m&=0,0\leftarrow\shabox{for $\lambda=0$ and}\\
+(m^2-n)r^m&=0\\
+m&=n,-n\leftarrow\shabox{for $\lambda=n^2$}
+\end{align*}
+gives the following results
+\begin{align}
+R(r)&=c_1+c_2\,\ln\,r\label{soq5ap11b}\\
+R(r)&=c_1r^n+c_2r^{-n}\label{soq5ap11c}
+\end{align}
+For bounded to $r=0$, \eqref{soq5ap11b} and \eqref{soq5ap11c} becomes
+\begin{align}
+R(r)&=c_1\label{soq5ap11d}\\
+%R(r)&=c_1r^n\label{soq5ap11e}
+\end{align}
+A product solution is
+\begin{equation}
+u_n(r,\theta)=(c_1r^n+c_2r^{-n})c_2\,\sin\,n\theta
+\end{equation}
+By superposition principle, the solution is
+\begin{align}
+u(r,\theta)&=\sum_{n=1}^\infty\,[(c_1r^n+c_2r^{-n})\,\sin\,n\theta\label{soq5ap11f}
+%&=\sum_{n=1}^\infty\,A_nr^n\,\sin\,n\theta+B_nr^{-n}\sin\,n\theta]\leftarrow\shabox{$A_n=c_1c_2$ and $B_n=c_2c_2$}\label{soq5ap11f}
+\end{align}
+%-----------------
+\shabox{c}\\
+Now use BC: $(b,\theta)=0$:
+From \eqref{soq5ap11c},
+\begin{align*}
+R(b)&=c_1b^n+c_2b^{-n}=0\to c_2=-c_1b^{2n}
+\end{align*}
+Substitute into \eqref{soq5ap11f}
+\begin{align}
+u(r,\theta)&=\sum_{n=1}^\infty\left(c_1r^n+c_2r^{-n}\right)c_2\,\sin\,n\theta\\
+&=\sum_{n=1}^\infty c_1\left(r^n-\frac{b^{2n}}{r^n}\right)c_2\,\sin\,n\theta\\
+&=\sum_{n=1}^\infty\,A_n\left(\frac{r^{2n}-b^{2n}}{r^n}\right)\sin\,n\theta\leftarrow\shabox{$A_n=c_1c_2$}\label{saa1}
+\end{align}
+%----------------
+\shabox{d)}
+\begin{align*}
+A_n\left(\frac{a^{2n}-b^{2n}}{a^n}\right)&=\frac{2}{\pi}\int_0^\pi\,2\theta^2\,\sin\,n\theta\,d\theta\\
+&=\frac{4}{\pi}\left[\theta^2\int\,\sin\,n\theta\,d\theta-\int[\int\,\sin\,n\theta\,d\theta\right]\frac{d}{\theta}(\theta^2)\,d\theta\\
+&=\frac{4}{\pi}\left[\theta^2(-\frac{1}{n}\cos\,n\theta)+\frac{2}{n}\int\,\theta\,\cos\,n\theta\,d\theta\right]\\
+&=-\frac{4}{n\pi}\theta^2\cos\,n\theta\big|_0^\pi+\frac{8}{n\pi}\left(\theta\,\int\,\cos\,n\theta\,d\theta-\int[\int\,\cos\,n\theta\,d\theta]d\theta\right)\\
+&=-\frac{4\pi}{n}((-1)^n)+\frac{8}{n\pi}[\frac{\theta}{n}\,\sin\,n\theta\big|_0^\pi+\frac{1}{n^2}\cos\,n\theta\big|_0^\pi]\\
+&=-\frac{4}{n\pi}((-1)^n)+\frac{8}{n^3\pi}((-1)^n-1)\\
+&=\frac{(-8+8(-1)^n-4n^2\pi^2(-1)^n}{n^3\pi}\\
+%&=\frac{(8-4n^2)}{n^3\pi}((-1)^n-1)\\
+%A_n&=\frac{a^n(8-4n^2)}{n^3\pi(a^{2n}-b^{2n})}\left[(-1)^n-1\right]
+A_n&=\frac{a^n(-8+8(-1)^n-4n^2\pi^2(-1)^n}{n^3\pi(a^{2n}-b^{2n}}
+\end{align*}The solution is given by \eqref{saa1} where $A_n$ is the above eqn.
+%----------------

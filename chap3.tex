@@ -1,0 +1,169 @@
+\chapter{Higher Dimensional Problems}
+\section{Two-Dimensional Linear PDE that represent Temperature}
+Given 
+\begin{align*}
+k\left(\frac{\partial^2u }{\partial x^2}+\frac{\partial^2}{\partial y^2}\right)&=\frac{\partial u}{\partial t},\,0<x<b,\,0<y<c, \,t>0\\
+s.t\hspace{2cm}&\\
+u(0,y,t)&=0,\,u(b,y,t)=0,\,0<y<c,\,\,t>0\\
+u(x,0,t)&=0,\,u(x,c,t)=0,\,0<y<c,\,t>0\\
+u(x,y,0)&=f(x,y),\,0<x<b,\,\,0<y<c
+\end{align*}
+\shabox{Solution}\\
+Apply separation of variables 
+\begin{equation}
+u(x,y,t)=X(x)Y(y)T(t)\label{hp1}
+\end{equation}
+Substitute \eqref{h1} into PDE gives
+\begin{align}
+k(X^{''}YT+XY^{''}T)&=XYT^{'}\nonumber\\
+\text{or}\hspace{2cm}&\nonumber\\
+\frac{X^{''}}{X}&=-\frac{Y^{''}}{Y}+\frac{T^{'}}{kT}\label{hp2}
+\end{align}
+%------------------
+Both sides of eqn \eqref{hp2} must equal to a constant $-\lambda$:
+\begin{align}
+X^{''}+\lambda X&=0\label{hp3}\\
+\frac{Y^{''}}{Y}&=\frac{T^{'}}{KT}+\lambda\label{hp4}
+\end{align}
+%----------------------
+Introduce another separation constant $-\mu$ in \eqref{hp4} becomes
+\begin{align}
+\frac{Y^{''}}{Y}&=-\mu\,\,\text{and}\,\,\frac{T^{'}}{kT}+\lambda=-\mu\nonumber\\
+Y^{''}+\mu Y&=0\,\,\text{and}\,\,T^{'}+k(\lambda+\mu)T=0\label{hp6}
+\end{align}
+%------------------------
+Now homogenoues BC:
+\begin{displaymath}
+\left.\begin{array}{cc}
+u(0,y,t)=0,&\,\,u(b,y,t)=0\\
+u(x,0,t)=0,&\,\,u(x,c,t)=0
+\end{array}\right\}\rightarrow \left\{\begin{array}{cc}
+X(0)=0,&\,\,X(b)=0\\
+Y(0)=0,&\,\,Y(c)=0
+\end{array}\right.
+\end{displaymath}
+Thus we have two Sturm-Liouville problems:
+\begin{align}
+X^{''}+\lambda X&=0,\,X(0)=0,\,\,X(b)=0\label{hp7}\\
+Y^{''}+\mu Y&=0,\,Y(0)=0,\,Y(c)=0\label{hp8}
+\end{align}
+Solve \eqref{hp7}:-\\
+Case 1: $\lambda=0$, $\mu=0$:\\
+\begin{align}
+X(x)&=c_1x+c_2\label{hp7a}
+\end{align}
+Apply BC, $X(0)=0$ on \eqref{hp7a} gives
+\begin{align*}
+X(0)&=0=c_1(0)+c_1\rightarrow c_2=0
+\end{align*}
+So $X(x)=c_1x$. Apply BC, $X(b)=0$ gives $0=c_1(0)\to c_1=0$
+Similarly for \eqref{hp8} will give $Y(y)=0$ when $\mu=0$.\\
+%---------------
+Case 2: $\lambda=-\alpha^2<0$, $\mu=-\alpha^2<0$:\\
+Eqns \eqref{hp7} and \eqref{hp8} become\\
+$X(x)=c_3\,\cosh\,\alpha x+c_4\,\sinh\,\alpha x$ and $Y(y)=c_5\,\cosh\,\alpha y+c_6\,\sinh\,\alpha y$ will give the trivial solution when apply BCs.\\
+\underline{Case 3:}$\lambda=\alpha^2>0$, $\mu=\alpha^2>0$:\\
+The solution of eqns \eqref{hp7} and \eqref{hp8} are
+\begin{align}
+X(x)&=c_7\,\cos\,\alpha x+c_8\,\sin\,\alpha x\label{ph7b}\\
+Y(y)&=c_9\,\cos\,\alpha x+c_{10}\,\sin\,\alpha x\label{ph8a}
+\end{align}
+When apply BC on \eqref{ph7b} gives 
+\begin{align*}
+X(0)=0&=c_7(1)\to c_7=0\\
+X(x)&=c_8\,\sin\,\alpha x
+\end{align*}
+Apply BC, $Y(b)=0$, give the nontrivial solution: $c_8\neq 0$, $\sin\,\alpha (b)=0\to \alpha=\frac{n\pi}{b}$. So the eigenvlue, $\lambda_m=\frac{m^2\pi^2}{b^2}$ and the corresponding eigenfunction 
+\begin{equation}
+X(x)=c_8\,\sin\,\frac{m\pi}{b}x
+\end{equation}
+Similarly , the eigenvlue and eigenfunction of \eqref{ph8a} are
+\begin{align}
+\lambda_n&=\frac{n^2\pi^2}{c^2}\label{hp8b}\\
+Y(y)&=c_{10}\,\sin\,\frac{n\pi}{c}\label{ph8c}
+\end{align}
+Now solve \eqref{hp6},
+\begin{align*}
+T^{'}+k(\frac{m^2\pi}{b^2}+\frac{n^2\pi^2}{c^2})T&=0\\
+T&=c_{11}e^{-k(\frac{m^2\pi}{b^2}+\frac{n^2\pi^2}{c^2})t}\label{hp10}
+\end{align*}
+A product solution of the two-dimensional heat equation,
+\begin{align*}
+u_{mn}(x,y,t)&=A_{mn}e^{-(\frac{m^2\pi}{b^2}+\frac{n^2\pi^2}{c^2})t}\,\sin\,\frac{m\pi}{b}x\,\sin\,\frac{n\pi}{c}y
+\end{align*}
+where $A_{mn}$ is an arbitrary constant.\\
+By the superposition principle, the solution,
+\begin{equation}
+u(x,y,t)=\sum_{m=1}^\infty\,\sum_{n=1}^\infty\,A_{mn}e^{-k(\frac{m^2\pi}{b^2}+\frac{n^2\pi^2}{c^2})t}\,\sin\,\frac{m\pi}{b}x\,\sin\,\frac{n\pi}{c}y\label{so}
+\end{equation}
+Now apply IC; at $t=0$, eqn \eqref{so1} gives
+\begin{align}
+u(x,y,0)=f(x,y)&=\sum_{m=1}^\infty\,\sum_{n=1}^\infty\,A_{mn}\,\sin\,\frac{m\pi}{b}x\,\sin\,\frac{n\pi}{c}y\nonumber\\
+A_{mn}&=\frac{4}{bc}\int_0^c\int_0^b\,f(x,y)\,\sin\,\frac{m\pi}{b}x\,\sin\,\frac{n\pi}{c}y\,dx\,dy\label{so1}
+\end{align}
+Thus the solution of the BVP consists of \eqref{so} with $A_{mn}$ given by \eqref{so1}
+%-----------------------
+\section{BVP subjected to the following BC}
+\begin{align*}
+u_t(x,y,t)&=a^2[u_{xx}(x,y,t)+u_{yy}(x,y,t)],\,0<x<b,\,0<y<c,\,t>0\\
+s.t\hspace{2cm}&\\
+u_x(0,y,t)&=u_x(b,y,t)=0,],0<y<c,\,t>0\\
+u_y(x,0,t)&=u)y(x,c,t)=0,\,0<x<b,\,t>0\\
+u(x,y,0)&=f(x,y),\,0<x<b,\,0<y<c
+\end{align*}
+\shabox{Solution}\\
+\begin{align*}
+u(x,y,t)&=A_{00}+\sum_{m=1}^\infty\,A_{m0}\cos\left(\frac{m\pi x}{b}\right)+\sum_{n=1}^\infty\,A_{0n}\,\cos\,\left(\frac{n\pi y}{c}\right)\\
+&+\sum_{m=1}^\infty\sum_{n=1}^\infty\,A_{mn}\,\cos\left(\frac{m\pi x}{b}\right)\,\cos\left(\frac{n\pi y}{c}\right)\\
+%---------------------
+A_{00}&=\frac{1}{bc}\int_0^c
+\end{align*}
+%-----------------
+\section{Suggested answers}
+\subsection{Q4 Jun 2014}
+\begin{prob}
+Consider the following two-dimensional heat equation
+\end{prob}
+\begin{align*}
+u_t(x,y,t)&=u_{xx}(x,y,t)+u_{yy}(x,y,t),\,\,0<x<2\pi,\,\,0<y<2\pi,\,t>0\\
+u(0,y,t)&=u(2\pi,y,t)=0,\,0<y<2\pi\\
+u(x,0,t)&=u(x,2\pi,t)=0,\,0<x<2\pi\\
+u(x,y,0)&=x\,sin\,y,\,\,0<y<2\pi
+\end{align*}
+\begin{description}
+\item a) Interpret the boundary-value problem above.
+\item b) Determine the temperature distribution $u(x,y,t)$.\\
+\end{description}
+\shabox{Solution}\\
+a) BVP describe the problem of temperature over the rectangle  $0\le x\le \pi$ by $0\le y\le \pi$ whose the initial temperature is $x\,\sin\,y$ throughout and boundaries are held at temperature zero for time $t>0.$\\
+\\
+b) By using the method of the separation of variable $u(x,y,t)=X(x)Y(y)T(t)$ and consider the $\lambda=\alpha^2>0$ and $\mu=\alpha^2>0$ we obtain the aigenvalues and theirs corresponding eigenfunctions
+\begin{align*}
+\lambda_m=\frac{m\pi}{2\pi}=\frac{m}{2}\,\,\,\mu_n=\frac{n\pi}{2\pi}=\frac{n}{2}\\
+\text{ and the corresponding eigenfunctions}&\\
+X(x)&=c_1\,\sin\,\frac{m}{2}x,\,\,Y(y)=c_2\,\sin\,\frac{n}{2}y
+\end{align*}
+respectively, where $m=1,2,3\ldots$ and $n=1,2,3,\ldots$\\
+A product solution of the 2-D heat equation that satisfies BC
+\begin{equation}
+u_{mn}=A_{mn}e^{-(\frac{m^2}{4}+\frac{n^2}{4})}\,\sin\,\frac{m}{2}x\,\sin\,\frac{n}{2}y
+\end{equation}
+where $A_{mn}$ is an arbitrary constant.\\
+By the superposition principle  in the form of a double sum
+\begin{equation}
+u(x,y,t)=\sum_{m=1}^\infty\,\sum_{n=1}^\infty\,A_{mn}e^{-(\frac{m^2+n^2}{4})}\,\sin\,\frac{m}{2}x\,\sin\,\frac{n}{2}y\label{sob}
+\end{equation}
+To find $A_{mn}$:\\
+At $t=0$
+\begin{align*}
+x\,\sin\,y=u(x,y,0)&=\sum_{m=1}^\infty\,\sum_{n=1}^\infty\,A_{mn}\,\sin\,\frac{m}{2}x\,\sin\,\frac{n}{2}y
+\end{align*}
+We can find the coefficient $A_{mn}$ by using the double integration,
+\begin{align*}
+A_{mn}&=\frac{4}{2\pi 2\pi}\int_0^{2\pi}\int_0^{2\pi}\,x\,sin\,y\,\sin\,\frac{m}{2}x\,\sin\,\frac{n}{2}y\,dx\,dy\\
+&=\frac{1}{\pi^2}\int_0^{2\pi}\left[-\frac{2x}{m}\,\cos\,\frac{m}{2}x+\frac{4}{m^2}\sin\,\frac{m}{2}x\right]_0^{2\pi}\sin\,\frac{m}{2}y\,dy\\
+&=-\frac{4}{\pi}(-1)^m\int_0^{2\pi}\sin\,\frac{m}{2}y\,dy\\
+&=-\frac{4}{m\pi}(-1)^m\left[-\frac{2}{m}\,\cos\,\frac{m}{2}y\right]_0^{2\pi}\\
+&=\frac{8}{m^2\pi}(-1)^m((-1)^m-1)
+\end{align*}
+The solution is given by \eqref{sob} where $A_{mn}=\frac{8}{m^2\pi}(-1)^m((-1)^m-1)$,

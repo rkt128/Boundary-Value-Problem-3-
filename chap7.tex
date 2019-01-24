@@ -1,0 +1,37 @@
+%\chap 7
+\section{Dec 2013}
+\shabox{Q5}\\
+a) Apply SOV $u(x,y)=X(x)Y(y)$ gives two ODEs
+\begin{align}
+X^{''}+\lambda X&=0\label{q5de13a}\\
+Y^{''}-\lambda Y&=0\label{q5de13b}
+\end{align}
+The Sturm-Liouville associated eqn \eqref{q5de13a} and BC then 
+\begin{equation}
+X^{''}+\lambda X=0,\,,X(0)=0,X(\pi)=0
+\end{equation}
+The solutions are
+\begin{align}
+X(x)&=c_1+c_2 x\leftarrow\shabox{$\lambda=0$}\label{q5de13c}\\
+X(x)&=c_3\,\cosh\,\alpha x+c_4\,\sinh\,\alpha x\leftarrow\shabox{$\lambda=-\alpha^2<0$}\label{q5de13aa}\\
+X(x)&=c_5\,\cos\,\alpha x+c_6\,\sin\,\alpha x\leftarrow\shabox{$\lambda=\alpha^2>0$}\label{q5dec13ab}
+\end{align}
+
+\begin{align*}
+X(0)=0&=c_1+C_2(0)\to c_1\\
+X(x)&=c_2x\\
+X(\pi)=0&=c_2(\pi)\to c_2=0
+\end{align*}
+Thus The solution is trivial. Similarly for eqn \eqref{q5de13aa}.
+For eqn \eqref{q5dec13ab}
+\begin{align}
+X(0)=0=c_5\,(1)+c_6(0)\to c_5=0\\
+X(x)&=c_6\,\sin\,\alpha x\\
+X(\pi)&=c_6\,\sin\,\alpha \pi
+\end{align}
+For non trivial solution $C_6\neq 0$ but $\sin\,\alpha \pi=0$ that is $\alpha\pi=n\pi\to \alpha=n$. Thus the solution is
+\begin{equation}
+X(x)=c_6\,\sin\,n x
+\end{equation}
+From ODE \eqref{q5de13b} with BC $u(x,1)=0\to Y(1)=0$
+                                       
